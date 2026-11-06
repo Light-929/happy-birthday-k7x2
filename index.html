@@ -1,264 +1,59 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#fff0f6">
-  <title>Our Little Universe ♡</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      min-height: 100svh;
-      font-family: Georgia, serif;
-      background: linear-gradient(
-        135deg, #ffe0ec, #eadfff, #fff1f5
-      );
-      color: #713c61;
-      display: grid;
-      place-items: center;
-      padding: 20px;
-      overflow-x: hidden;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 480px;
-      text-align: center;
-      padding: 30px 22px;
-      background: rgba(255,255,255,.75);
-      border: 1px solid white;
-      border-radius: 28px;
-      box-shadow: 0 12px 40px #a65e8b25;
-    }
-
-    .heart {
-      font-size: 55px;
-      animation: heartbeat 1.5s infinite;
-    }
-
-    h1 {
-      font-size: clamp(27px, 7vw, 38px);
-      margin: 15px 0;
-    }
-
-    p {
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    button {
-      border: none;
-      padding: 14px 25px;
-      margin: 8px;
-      border-radius: 30px;
-      background: #e98bb5;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      min-height: 48px;
-      transition: transform .2s, background .2s;
-      touch-action: manipulation;
-    }
-
-    button:active {
-      transform: scale(.95);
-    }
-
-    button:hover {
-      background: #d96b9d;
-    }
-
-    .secondary {
-      background: #b99bdc;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .message {
-      min-height: 65px;
-      margin: 20px 0;
-      font-size: 18px;
-    }
-
-    .sparkle {
-      font-size: 24px;
-    }
-
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-    }
-
-    @media (max-width: 380px) {
-      .container {
-        padding: 25px 15px;
-      }
-
-      button {
-        padding: 13px 19px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For You 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div id="hearts"></div>
+  <div id="confetti"></div>
 
-  <main class="container">
+  <main class="card" id="welcomeCard">
+    <div class="teddy-ring">
+      <div id="teddy">🧸</div>
+    </div>
+    <p id="teddySay" class="teddy-say">Tap me! 🥺</p>
 
-    <section id="welcome">
-      <div class="heart">💗</div>
+    <p class="small">Something special, made just for you ✨</p>
+    <h1>Welcome, <span id="nickname">cutie</span> 💖</h1>
+    <p class="sub">Tap below to meet all the names I call you.</p>
 
-      <h1>Heyyy, Piku!</h1>
-
-      <p>
-        A little birdie told me that a certain
-        Cutie has a birthday coming...
-      </p>
-
-      <p>
-        Sooo, Maharani Ji, I made something
-        special just for you. 🥺
-      </p>
-
-      <button id="openBtn">
-        Open your surprise 💌
-      </button>
-    </section>
-
-    <section id="loveGame" class="hidden">
-
-      <div class="heart">🥺</div>
-
-      <h1 id="question">
-        Do you love me, Babyy?
-      </h1>
-
-      <p id="description">
-        Think carefully, Cookiee.
-        Your answer matters! 💗
-      </p>
-
-      <div id="buttons">
-        <button id="yesBtn">YESSS 💗</button>
-        <button id="noBtn" class="secondary">NO 🙄</button>
-      </div>
-
-      <p class="message" id="message"></p>
-
-    </section>
-
-    <section id="surprise" class="hidden">
-
-      <div class="heart">💖</div>
-
-      <h1>HEHEHE! GOT YOU!</h1>
-
-      <p>
-        I knew it, my Golu Molu!
-      </p>
-
-      <p>
-        Listen, Paglii. Even with all these
-        miles between us, you still have
-        the biggest place in my heart.
-      </p>
-
-      <p>
-        I love you, Bhootni.
-        I love you, Cupcake.
-        I love you, Booboo.
-        I love you, Our Misses. ❤️
-      </p>
-
-      <p>
-        And this is only the beginning
-        of your little birthday universe.
-      </p>
-
-      <div class="sparkle">✨ 💗 ✨</div>
-
-    </section>
-
+    <button id="nameBtn" type="button" class="btn">Change my name 😄</button>
+    <button id="surpriseBtn" type="button" class="btn gift">Open your surprise 🎁</button>
   </main>
 
-  <script>
-    const welcome = document.getElementById("welcome");
-    const loveGame = document.getElementById("loveGame");
-    const surprise = document.getElementById("surprise");
+  <main class="card letter-card" id="letterScreen" hidden>
+    <div class="cake">🎂</div>
+    <h1>Happy 19th Birthday! 🎉</h1>
 
-    const openBtn = document.getElementById("openBtn");
-    const yesBtn = document.getElementById("yesBtn");
-    const noBtn = document.getElementById("noBtn");
+    <div class="letter">
+      <p>HAPPIEST BIRTHDAY TO MY BEAUTIFUL GIRL! 🥹🎀❤️✨</p>
+      <p>FINALLYYYY, YOUR DAY IS HERE! 🎉🥳💃</p>
+      <p>First of all, Alhamdulillah for another year of your life. 🤍 Alhamdulillah that you were born, that you've made it through another year, and that the world gets to have someone like you in it. 🌍💖</p>
+      <p>I genuinely wish I could make you see just how precious you are to me. 🥺 Not just because it's your birthday, not just because you're growing another year older, but because of everything that makes you YOU. 🌷</p>
+      <p>Your smile 😊, your voice 🎶, your personality 💕, your little habits 🐣, your silliness 🤪, your stubbornness 😤, your dreams 🌙, your thoughts 💭 and all those tiny details that make you different from everyone else. I adore so much about you, and I hope you never forget that. 🥰</p>
+      <p>I'm proud of you for making it through another year. 🥹 For the days you smiled, the days you struggled, the things you overcame quietly and the moments when you kept going even when things weren't easy. 💪🌸</p>
+      <p>I pray that Allah grants you a long, healthy and beautiful life filled with happiness, peace, protection, success and countless blessings. 🌟 May He accept your duas, ease your worries, protect your loved ones, guide your steps and grant you everything that is truly good for your dunya and akhirah. Ameen, ya Rabb. 🤲🏻🤍</p>
+      <p>I hope today makes you feel as special as you truly are. 👑 Eat your favourite food 🍕🍰, wear your prettiest outfit 👗, take all the pictures you want 📸, laugh until your cheeks hurt 😂 and enjoy every little moment. You deserve to have a beautiful day. 🌈</p>
+      <p>And as you enter another year of your life, I hope you never stop believing in yourself, never stop chasing your dreams and never forget how much you are capable of. ⭐🚀</p>
+      <p>Thank you for being you. 🫶 Thank you for the laughter 😆, the memories 📷, the affection 🤗, the random conversations 💬 and all those little moments that mean more than you might realise. 💞</p>
+      <p>Happy birthday once again, my precious girl. 🎀 May this new chapter be one of the loveliest chapters of your life. 📖💗</p>
+      <p>30 November will always be a special date because it's the day you came into this world. 🥺❤️😘</p>
+      <p class="big">HAPPIEST BIRTHDAYYYYY! 🎂🌷👑🫂❤️😘💋</p>
+    </div>
 
-    const question = document.getElementById("question");
-    const description = document.getElementById("description");
-    const message = document.getElementById("message");
-    const buttons = document.getElementById("buttons");
+    <button id="backBtn" type="button" class="btn">← Back to the start 🧸</button>
+  </main>
 
-    const noMessages = [
-      "EXCUSE ME??? 😭 Try again, Paglii!",
-      "WHAT DO YOU MEAN NOOO? Bhootni! 😭",
-      "Piku, don't test my patience! 🥺",
-      "Cookiee, I'll ask again. DO YOU LOVE ME?",
-      "Maharani Ji, this is your final warning! 😤"
-    ];
+  <div id="dogWrap">
+    <div id="dogSay" class="dog-say">Woof!</div>
+    <div id="dog">🐕</div>
+  </div>
 
-    let noCount = 0;
-
-    openBtn.addEventListener("click", () => {
-      welcome.classList.add("hidden");
-      loveGame.classList.remove("hidden");
-    });
-
-    noBtn.addEventListener("click", () => {
-      if (noCount < noMessages.length) {
-        message.textContent = noMessages[noCount];
-        noCount++;
-      }
-
-      if (noCount >= noMessages.length) {
-        question.textContent = "DO YOU LOVE ME OR NOTTT? 😭";
-        description.textContent =
-          "Okay fine. You have two choices now, Cookiee.";
-
-        noBtn.textContent = "YES 💗";
-        noBtn.classList.remove("secondary");
-        noBtn.disabled = true;
-        noBtn.style.opacity = ".7";
-      }
-    });
-
-    yesBtn.addEventListener("click", showSurprise);
-
-    noBtn.addEventListener("dblclick", () => {
-      if (noCount >= noMessages.length) {
-        showSurprise();
-      }
-    });
-
-    function showSurprise() {
-      loveGame.classList.add("hidden");
-      surprise.classList.remove("hidden");
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
